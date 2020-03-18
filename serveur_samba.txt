@@ -1,0 +1,35 @@
+le serveur de partage SAMBA
+
+[global]
+
+[private]
+
+[homes]
+
+   [master1] creation de la session
+   comment = master1
+   path = /var/samba/master1    #il faut crée ce schema avec "mkdir -p /var/samba/master1"
+   public = yes
+   browseable = yes
+   writable = yes 
+   create mode = 0666 
+   directory mode = 0777
+   write list = +gl
+   valid users = @gl, diallo
+   printable = yes or no
+
+Installation de package 
+ samba
+ samba-clients
+ samba-commun 
+fichier de configuration : /etc/samba/smb.conf
+Test de la syntaxe : testparn 
+
+affection d'un utilisateur : 
+smbpasswd -a le nom de l'utilisateur 
+
+pour voir tout les utilisateur de samba il faut tape pbdedit -L 
+
+voir pour si le package sont installer ou pas 
+ executer la commande 
+  rpm -qa |grep le serveur 
